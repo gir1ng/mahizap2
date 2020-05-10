@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Mahizap2</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>Mahizap2</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
+  <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
+</head>
+
+<body>
+  <header>
+    <h1>
+      <%= link_to "トップページ", root_path %>
+    </h1>
+    
+    <nav>
+      <ul>
+        <li><a href="#">食事管理</a></li>
+        <li><a href="#">???</a></li>
+        <li><a href="#">???</a></li>
+        <li><a href="#">???</a></li>
+      </ul>
+    </nav>
+  </header>
+  <%= yield %>
+</body>
+
 </html>
