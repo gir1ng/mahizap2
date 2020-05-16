@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  food_name: MyString
+  searchName: MyString
+  quantifier: MyString
+  calorie: 
+
+two:
+  food_name: MyString
+  searchName: MyString
+  quantifier: MyString
+  calorie: 

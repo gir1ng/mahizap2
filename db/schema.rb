@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_14_020609) do
+ActiveRecord::Schema.define(version: 2020_05_16_032031) do
+
+  create_table "foods", force: :cascade do |t|
+    t.string "food_name"
+    t.string "search_name"
+    t.string "quantifier"
+    t.integer "calorie"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["food_name"], name: "index_foods_on_food_name", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
