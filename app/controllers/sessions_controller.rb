@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
     if logged_in?
       redirect_to root_url
     else
+      @user = User.new
       render "new"
     end
   end

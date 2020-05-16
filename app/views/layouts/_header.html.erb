@@ -11,7 +11,8 @@
             </div>
             <div class="collapse navbar-collapse" id="main-menu">
                 <ul class="nav navbar-nav">
-                    <li><%= link_to "食事管理", root_path%></li>
+                    <li><%= link_to "記録する", new_meal_record_path %></li>
+                    <li><%= link_to "記録を見る", meal_records_path %></li>
                     <% if logged_in? %>
                     <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
                     <% else %>
