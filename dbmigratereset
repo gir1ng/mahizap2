@@ -1,0 +1,65 @@
+[33mcommit 199eaaaddb65680a49c550b64fc3babc1c6dbbfc[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: gir1ng <a08030582573a@gmail.com>
+Date:   Thu May 14 14:30:26 2020 +0900
+
+    認可処理を追加
+
+[33mcommit 73fc1b69ad5e4ca3387ca8b75003a516d5e05d9f[m[33m ([m[1;32mchapter9[m[33m)[m
+Author: gir1ng <a08030582573a@gmail.com>
+Date:   Thu May 14 13:50:55 2020 +0900
+
+    永続的ログイン機能を実装
+
+[33mcommit bd9a893106af7722bf61c88d2d01182434b1316c[m[33m ([m[1;32mchapter8[m[33m)[m
+Author: gir1ng <a08030582573a@gmail.com>
+Date:   Thu May 14 10:53:10 2020 +0900
+
+    ログイン機能を作成
+
+[33mcommit 7735bbe7390a5c00f59011de43d51362bbc94219[m
+Author: gir1ng <a08030582573a@gmail.com>
+Date:   Wed May 13 16:45:37 2020 +0900
+
+    本番環境でssl、postgresqlを使用するための設定完了
+
+[33mcommit 9e817dddbf3208534b7328b04c3d5873531718c5[m[33m ([m[1;32mchapter7[m[33m)[m
+Author: gir1ng <a08030582573a@gmail.com>
+Date:   Wed May 13 16:30:29 2020 +0900
+
+    ユーザー登録機能を作成
+
+[33mcommit fae43fb106aad27f68ee5dd733432650e0f397af[m[33m ([m[1;32mchapter6[m[33m)[m
+Author: gir1ng <a08030582573a@gmail.com>
+Date:   Wed May 13 09:42:20 2020 +0900
+
+    password_digestカラムを追加
+
+[33mcommit 545355cf5b2313e81a8fcd4934c7c45ce60c5eff[m[33m ([m[1;32mchapter5[m[33m)[m
+Author: gir1ng <a08030582573a@gmail.com>
+Date:   Mon May 11 17:52:28 2020 +0900
+
+    bootstrapの導入、menusコントローラーの作成
+
+[33mcommit 261a2bc39e708e1fbebd4263675897d0d309783e[m[33m ([m[1;31morigin/chapter3[m[33m, [m[1;32mchapter4[m[33m, [m[1;32mchapter3[m[33m)[m
+Author: gir1ng <a08030582573a@gmail.com>
+Date:   Sun May 10 10:52:36 2020 +0900
+
+    home画面を作成
+
+[33mcommit 65bd4d4112cc7fc1b5f3d5cca924627057198b5b[m
+Author: gir1ng <a08030582573a@gmail.com>
+Date:   Sun May 10 09:58:36 2020 +0900
+
+    add mahizap controller
+
+[33mcommit d4c7544cd44bf7964ae4569667fd2c3a5ae23137[m
+Author: gir1ng <a08030582573a@gmail.com>
+Date:   Sun May 10 08:23:34 2020 +0900
+
+    pgをgemfileに追加
+
+[33mcommit 6b4e7d3533504168760a9218647c7e4f61ca3f6c[m
+Author: gir1ng <a08030582573a@gmail.com>
+Date:   Sun May 10 08:04:58 2020 +0900
+
+    Initialize repository
