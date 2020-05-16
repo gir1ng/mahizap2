@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'meal_records/new'
+  get 'meal_records/index'
   get 'foods/new'
   get 'foods/create'
   get "users/new"
