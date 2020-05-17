@@ -29,20 +29,22 @@
         <% end %>
         <%= link_to "食品を新しく登録する", new_food_path %>
     </div>
-    <% if session[:result].length != 0 %>
-    <ul>
-        <% session[:result].each_with_index do |r, i| %>
-        <li>
-            <%= form_with(url: session_result_delete_path, method: :get, local: true) do |f| %>
+    <div class="col-md-6">
+        <% if session[:result].length != 0 %>
+        <ul>
+            <% session[:result].each_with_index do |r, i| %>
+            <li>
+                <%= form_with(url: session_result_delete_path, method: :get, local: true) do |f| %>
                 <%= r["food_name"] %>（<%= r["quantifier"] %>） × <%= r["multiple"] %>
                 <%= f.hidden_field :index, value: i %>
                 <%= f.submit "削除", class: "btn btn-danger" %>
+                <% end %>
+            </li>
             <% end %>
-        </li>
+        </ul>
+        <%= form_with(model: @meal_record, local: true) do |f| %>
+        <%= f.submit "保存", class: "btn btn-primary" %>
         <% end %>
-    </ul>
-    <%= form_with(model: @meal_record, local: true) do |f| %>
-    <%= f.submit "保存", class: "btn btn-primary" %>
-    <% end %>
-    <% end %>
+        <% end %>
+    </div>
 </div>
