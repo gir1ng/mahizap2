@@ -11,7 +11,8 @@ class MealRecordsController < ApplicationController
   end
 
   def index
-    @meal_records = MealRecord.all
+    @meal_records = MealRecord.where(user_id: current_user.id).order(created_at: "DESC")
+    # @meal_records = current_user.meal_records.order(created_at: DESC)
   end
 
   def create
@@ -25,5 +26,10 @@ class MealRecordsController < ApplicationController
     session.delete(:result)
     meal_record.save
     redirect_to meal_records_url
+  end
+
+  def session_result_delete
+    session[:result].delete_at(params[:index].to_i)
+    redirect_to new_meal_record_url
   end
 end
