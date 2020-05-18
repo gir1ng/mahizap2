@@ -1,5 +1,6 @@
 class MealRecordsController < ApplicationController
-  # session[:result] = [{food_name: 納豆, multiple: 1, calorie: 80}, {food_name: ナッツ, multiple: 10, calorie: 90}]
+  before_action :require_login
+
   def new
     @meal_record = MealRecord.new
     session[:result] = [] if session[:result].nil?

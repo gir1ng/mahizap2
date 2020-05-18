@@ -1,0 +1,24 @@
+<div class="row">
+    <h3>【やること】</h3>
+    <%= form_with(url: save_point_path,method: :get, local: true) do |f| %>
+    <ul class="list-unstyled">
+        <% @tasks.each do |task| %>
+        <% if task.todo.present? %>
+        <li><input id="<%= task.id %>" name="todo[<%= task.todo %>]" type="checkbox" value="1"><label
+                for="<%= task.id %>"><%= task.todo %></label></li>
+        <% end %>
+        <% end %>
+    </ul>
+    <h3>【自粛すること】</h3>
+    <ul class="list-unstyled">
+        <% @tasks.each do |task| %>
+        <% if task.not_todo.present? %>
+        <li><input id="<%= task.id %>" name="not_todo[<%= task.not_todo %>]" type="checkbox" value="1"><label
+                for="<%= task.id %>"><%= task.not_todo %></label></li>
+        <% end %>
+        <% end %>
+    </ul>
+    <%= f.submit "ポイントを貯める", class: "btn btn-primary" %>
+    <%= link_to "チェックリストを追加する", new_task_path %>
+    <% end %>
+</div>

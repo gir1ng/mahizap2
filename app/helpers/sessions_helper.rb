@@ -66,4 +66,10 @@ module SessionsHelper
   def store_location
     session[:forwarding_url] = request.original_url if request.get?
   end
+
+  def require_login
+    unless logged_in?
+      redirect_to login_url
+    end
+  end
 end

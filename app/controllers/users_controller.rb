@@ -18,6 +18,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def save_point
+    todo_count = 0
+    not_todo_count = 0
+    todo_count = params[:todo].values.map(&:to_i).sum if params[:todo]
+    not_todo_count = params[:not_todo].values.map(&:to_i).sum if params[:not_todo]
+    if params[:todo] || params[:not_todo]
+      count = todo_count - not_todo_count
+      current_user.update_attribute(:point, current_user.point + count)
+      flash[:success] = "#{count}pt貯まりました"
+      redirect_to root_url
+    else
+      flash[:danger] = "1つもチェックされていません"
+      redirect_to tasks_url
+    end
+  end
+
   private
 
   def user_params

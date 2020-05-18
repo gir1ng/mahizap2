@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  todo: MyString
+  not_todo: MyString
+  user: one
+
+two:
+  todo: MyString
+  not_todo: MyString
+  user: two

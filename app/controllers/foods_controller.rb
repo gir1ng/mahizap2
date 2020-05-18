@@ -1,4 +1,6 @@
 class FoodsController < ApplicationController
+  before_action :require_login
+
   def new
     @food = Food.new
   end
