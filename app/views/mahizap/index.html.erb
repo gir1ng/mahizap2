@@ -1,3 +1,6 @@
-<% if logged_in? %>
-<h3>現在のポイント：<%= current_user.point %>pt</h3>
-<% end %>
+<div class="row">
+    <% if logged_in? %>
+    <h1 id="zero" style="display: none; font-family: monospace; font-size: 40px; margin-top: 50px;">なにもない自分に小さなイチを足していく
+    </h1>
+    <% end %>
+</div>

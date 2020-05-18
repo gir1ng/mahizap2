@@ -27,9 +27,9 @@ class UsersController < ApplicationController
       count = todo_count - not_todo_count
       current_user.update_attribute(:point, current_user.point + count)
       flash[:success] = "#{count}pt貯まりました"
-      redirect_to root_url
+      redirect_to meal_records_url
     else
-      flash[:danger] = "1つもチェックされていません"
+      flash[:danger] = "1つ以上チェックしてください"
       redirect_to tasks_url
     end
   end

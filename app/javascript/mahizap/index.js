@@ -1,3 +1,3 @@
-// $(function() {
-//     alert("なにもない自分に小さなイチを足していく")
-// });
+$(document).on('turbolinks:load', function() {
+        $('#zero').fadeIn(4000);
+});

@@ -10,13 +10,13 @@
             <%= f.label :password, "パスワード" %>
             <%= f.password_field :password, class: 'form-control' %>
         </div>
-        <p class="text-center">
+        <!-- <p class="text-center">
             <%= f.label :remember_me, class: "checkbox inline" do %>
             <%= f.check_box :remember_me %>
             <span>次回から自動でログインする</span>
             <% end %>
-        </p>
-        <%= f.submit "Log in", class: "btn btn-primary center-block" %>
+        </p> -->
+        <%= f.submit "Log in", class: "btn btn-primary center-block", id: "login_btn" %>
         <% end %>
     </div>
 </div>
