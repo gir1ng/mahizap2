@@ -1,5 +1,6 @@
 class MealRecordsController < ApplicationController
   before_action :require_login
+  before_action :correct_user, only: [:edit, :update]
 
   def new
     @meal_record = MealRecord.new
@@ -7,13 +8,13 @@ class MealRecordsController < ApplicationController
     if multiple = params[:multiple]
       result = { food_name: params[:food_name], quantifier: params[:quantifier], calorie: params[:calorie], multiple: multiple }
       session[:result].push(result)
-      redirect_to new_meal_record_url
+      flash[:success] = "#{params[:food_name]}を追加しました"
+      redirect_back_or new_meal_record_url
     end
   end
 
   def index
     @meal_records = MealRecord.where(user_id: current_user.id).order(created_at: "DESC")
-    # @meal_records = current_user.meal_records.order(created_at: DESC)
   end
 
   def create
@@ -32,5 +33,28 @@ class MealRecordsController < ApplicationController
   def session_result_delete
     session[:result].delete_at(params[:index].to_i)
     redirect_to new_meal_record_url
+  end
+
+  def edit
+  end
+
+  def update
+    if @meal_record.update(meal_record_params)
+      flash[:success] = "更新しました"
+      redirect_to meal_records_url
+    else
+      render "edit"
+    end
+  end
+
+  private
+
+  def meal_record_params
+    params.require(:meal_record).permit(:meal_content, :total_calorie)
+  end
+
+  def correct_user
+    @meal_record = MealRecord.find(params[:id])
+    redirect_to(root_url) unless @meal_record.user_id == current_user.id
   end
 end

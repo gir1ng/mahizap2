@@ -9,7 +9,7 @@ class FoodsController < ApplicationController
     @food = Food.new(food_params)
     if @food.save
       flash[:success] = "食品の登録が完了しました"
-      redirect_to new_meal_record_url
+      redirect_to new_food_url
     else
       render "new"
     end
@@ -18,6 +18,7 @@ class FoodsController < ApplicationController
   def search
     if !(search_name = params[:search_name]).empty?
       @foods = Food.where("search_name LIKE ?", "%#{search_name}%")
+      store_location
     end
     render "meal_records/new"
   end
