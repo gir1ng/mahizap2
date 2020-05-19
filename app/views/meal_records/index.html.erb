@@ -29,7 +29,6 @@
         </table>
     </div>
     <div class="col-xs-2 mt-5">
-        <!-- <%= link_to "編集", edit_meal_record_path(mr) %> -->
         <%= form_with(url: edit_meal_record_path(mr.id), method: :get, local: true) do |f| %>
         <%= f.submit "編集", class: "btn btn-success" %>
         <% end %>

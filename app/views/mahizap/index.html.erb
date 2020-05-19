@@ -1,6 +1,10 @@
 <div class="row">
     <% if logged_in? %>
-    <h1 id="zero" style="display: none; font-family: monospace; font-size: 40px; margin-top: 50px;">なにもない自分に小さなイチを足していく
-    </h1>
+    <div class="col-xs-12">
+        <h1 class="text-center" id="zero"
+            style="display: none; font-family: monospace; font-size: 40px; margin: 200px 0;">
+            <%= @famous_quote %>
+        </h1>
+    </div>
     <% end %>
 </div>

@@ -2,14 +2,15 @@ class MealRecordsController < ApplicationController
   before_action :require_login
   before_action :correct_user, only: [:edit, :update]
 
-  def new
+  def add_food
     @meal_record = MealRecord.new
     session[:result] = [] if session[:result].nil?
     if multiple = params[:multiple]
       result = { food_name: params[:food_name], quantifier: params[:quantifier], calorie: params[:calorie], multiple: multiple }
       session[:result].push(result)
       flash[:success] = "#{params[:food_name]}を追加しました"
-      redirect_back_or new_meal_record_url
+      # redirect_to add_food_url
+      redirect_back_or add_food_url
     end
   end
 
@@ -24,7 +25,7 @@ class MealRecordsController < ApplicationController
       total_calorie += r["calorie"].to_i * r["multiple"].to_f
       meal_content.push(r["food_name"])
     end
-    meal_record = current_user.meal_records.build(meal_content: meal_content.join(","), total_calorie: total_calorie)
+    meal_record = current_user.meal_records.build(meal_content: meal_content.join(","), total_calorie: total_calorie.to_i)
     session.delete(:result)
     meal_record.save
     redirect_to meal_records_url

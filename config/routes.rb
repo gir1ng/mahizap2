@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/foods/search", to: "foods#search"
   get "/session_result_delete", to: "meal_records#session_result_delete"
+  get "/add_food", to: "meal_records#add_food"
   get "save_point", to: "users#save_point"
   resources :foods
   resources :users

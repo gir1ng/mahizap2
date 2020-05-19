@@ -20,7 +20,8 @@ class FoodsController < ApplicationController
       @foods = Food.where("search_name LIKE ?", "%#{search_name}%")
       store_location
     end
-    render "meal_records/new"
+    @meal_record = MealRecord.new
+    render "meal_records/add_food"
   end
 
   private
