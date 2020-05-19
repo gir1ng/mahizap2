@@ -33,7 +33,7 @@ class MealRecordsController < ApplicationController
 
   def session_result_delete
     session[:result].delete_at(params[:index].to_i)
-    redirect_to new_meal_record_url
+    redirect_back_or add_food_url
   end
 
   def edit
