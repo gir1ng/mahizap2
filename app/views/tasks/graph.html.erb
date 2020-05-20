@@ -1,0 +1,7 @@
+<div class="row">
+    <% if @percentages %>
+     <% @percentages.each do |key, value| %>
+        <p><%= key %>:<%= value %></p>
+     <% end %> 
+    <% end %>
+</div>

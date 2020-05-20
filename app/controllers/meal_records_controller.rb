@@ -26,7 +26,7 @@ class MealRecordsController < ApplicationController
       total_sugar += r["sugar"].to_f * r["multiple"].to_f
       meal_content.push(r["food_name"])
     end
-    meal_record = current_user.meal_records.build(meal_content: meal_content.join(","), total_sugar: total_sugar, total_calorie: total_calorie.to_i)
+    meal_record = current_user.meal_records.build(meal_content: meal_content.join(","), total_sugar: total_sugar.to_i, total_calorie: total_calorie.to_i)
     session.delete(:result)
     meal_record.save
     redirect_to meal_records_url
