@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_18_050958) do
+ActiveRecord::Schema.define(version: 2020_05_20_000551) do
 
   create_table "foods", force: :cascade do |t|
     t.string "food_name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_05_18_050958) do
     t.integer "calorie"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "sugar", default: 0.0
   end
 
   create_table "meal_records", force: :cascade do |t|
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_05_18_050958) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "total_sugar", default: 0
     t.index ["user_id"], name: "index_meal_records_on_user_id"
   end
 

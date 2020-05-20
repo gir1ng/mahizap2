@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-8">
         <%= form_with(url: foods_search_path, method: :get, local: true) do |f| %>
             <div>
                 <%= f.label :search_name, "食品名（ひらがなで入力してください）" %>
@@ -12,12 +12,14 @@
                 <ul>
                     <% @foods.each do |food| %>
                         <li>
-                            <%= form_with(url: add_food_path, method: :get, local: true) do |f| %>
-                                <%= food.food_name %><%= food.quantifier %>（<%= food.calorie %>kcal） ×
+                            <%= form_with(url: new_meal_record_path, method: :get, local: true) do |f| %>
+                            <%= link_to food.food_name, edit_food_path(food.id) %>
+                                <%= food.quantifier %>（糖質：<%= food.sugar %>g, カロリー：<%= food.calorie %>kcal） ×
                                 <%= f.number_field :multiple, step: 0.1, value: 1, min: 0.1, required: true %>
                                 <%= f.hidden_field :food_name, value: food.food_name %>
                                 <%= f.hidden_field :quantifier, value: food.quantifier %>
                                 <%= f.hidden_field :calorie, value: food.calorie %>
+                                <%= f.hidden_field :sugar, value: food.sugar %>
                                 <%= f.submit "追加", class: "btn btn-primary" %>
                             <% end %>
                         </li>
@@ -29,21 +31,25 @@
             <% end %>
         <%= link_to "食品を新しく登録する", new_food_path %>
     </div>
-    <div class="col-xs-6">
+    <div class="col-xs-4">
         <% if session[:result].length != 0 %>
-            <ul>
+            <table class="table">
                 <% session[:result].each_with_index do |r, i| %>
-                    <li>
+                    <tr>
                         <%= form_with(url: session_result_delete_path, method: :get, local: true) do |f| %>
-                            <%= r["food_name"] %>（<%= r["quantifier"] %>） × <%= r["multiple"] %>
-                            <%= f.hidden_field :index, value: i %>
-                            <%= f.submit "削除", class: "btn btn-danger" %>
+                            <td>
+                                <%= r["food_name"] %>（<%= r["quantifier"] %>） × <%= r["multiple"] %>
+                                <%= f.hidden_field :index, value: i %>
+                            </td>
+                            <td>
+                                <%= f.submit "削除", class: "btn btn-danger" %>
+                            </td>
                         <% end %>
-                    </li>
+                    </tr>
                 <% end %>
-            </ul>
+            </table>
             <%= form_with(model: @meal_record, local: true) do |f| %>
-                <%= f.submit "保存", class: "btn btn-primary" %>
+                <%= f.submit "保存", class: "btn btn-primary center-block" %>
             <% end %>
         <% end %>
     </div>

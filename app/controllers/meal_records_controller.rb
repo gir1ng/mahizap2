@@ -2,15 +2,14 @@ class MealRecordsController < ApplicationController
   before_action :require_login
   before_action :correct_user, only: [:edit, :update]
 
-  def add_food
+  def new
     @meal_record = MealRecord.new
     session[:result] = [] if session[:result].nil?
     if multiple = params[:multiple]
-      result = { food_name: params[:food_name], quantifier: params[:quantifier], calorie: params[:calorie], multiple: multiple }
+      result = { food_name: params[:food_name], quantifier: params[:quantifier], calorie: params[:calorie], multiple: multiple, sugar: params[:sugar] }
       session[:result].push(result)
       flash[:success] = "#{params[:food_name]}を追加しました"
-      # redirect_to add_food_url
-      redirect_back_or add_food_url
+      redirect_back_or new_meal_record_url
     end
   end
 
@@ -20,12 +19,14 @@ class MealRecordsController < ApplicationController
 
   def create
     total_calorie = 0
+    total_sugar = 0
     meal_content = []
     session[:result].each do |r|
       total_calorie += r["calorie"].to_i * r["multiple"].to_f
+      total_sugar += r["sugar"].to_f * r["multiple"].to_f
       meal_content.push(r["food_name"])
     end
-    meal_record = current_user.meal_records.build(meal_content: meal_content.join(","), total_calorie: total_calorie.to_i)
+    meal_record = current_user.meal_records.build(meal_content: meal_content.join(","), total_sugar: total_sugar, total_calorie: total_calorie.to_i)
     session.delete(:result)
     meal_record.save
     redirect_to meal_records_url
@@ -33,7 +34,7 @@ class MealRecordsController < ApplicationController
 
   def session_result_delete
     session[:result].delete_at(params[:index].to_i)
-    redirect_back_or add_food_url
+    redirect_back_or new_meal_record_url
   end
 
   def edit
@@ -51,7 +52,7 @@ class MealRecordsController < ApplicationController
   private
 
   def meal_record_params
-    params.require(:meal_record).permit(:meal_content, :total_calorie)
+    params.require(:meal_record).permit(:meal_content, :total_calorie, :total_sugar)
   end
 
   def correct_user

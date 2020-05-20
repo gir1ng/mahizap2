@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse" id="main-menu" style="background-color:#ff00aa85;">
                 <ul class="nav navbar-nav">
                     <% if logged_in? %>
-                    <li><%= link_to "記録する", add_food_path, style: "color: white;" %></li>
+                    <li><%= link_to "記録する", new_meal_record_path, style: "color: white;" %></li>
                     <li><%= link_to "記録を見る", meal_records_path, style: "color: white;" %></li>
                     <li><%= link_to "チェックリスト", tasks_path, style: "color: white;" %></li>
                     <li><%= link_to "ログアウト", logout_path, method: :delete, style: "color: white;" %></li>

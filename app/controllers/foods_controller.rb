@@ -21,13 +21,27 @@ class FoodsController < ApplicationController
       store_location
     end
     @meal_record = MealRecord.new
-    render "meal_records/add_food"
+    render "meal_records/new"
+  end
+
+  def edit
+    @food = Food.find(params[:id])
+  end
+
+  def update
+    @food = Food.find(params[:id])
+    if @food.update(food_params)
+      flash[:success] = "更新しました"
+      redirect_back_or new_meal_record_url
+    else
+      render "edit"
+    end
   end
 
   private
 
   def food_params
     params.require(:food).permit(:food_name, :search_name, :quantifier,
-                                 :calorie)
+                                 :calorie, :sugar)
   end
 end
