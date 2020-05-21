@@ -1,7 +1,14 @@
 <div class="row">
-    <% if @percentages %>
-     <% @percentages.each do |key, value| %>
-        <p><%= key %>:<%= value %></p>
-     <% end %> 
-    <% end %>
+    <div class="col-xs-6">
+        <% if @todo_percentages %>
+            <h3>やること</h3>
+            <%= column_chart @todo_percentages, min: 0, max: 100, colors: ["#0000ff4d"] %>
+        <% end %>
+    </div>
+    <div class="col-xs-6">
+        <% if @not_todo_percentages %>
+            <h3>自粛すること</h3>
+            <%= column_chart @not_todo_percentages, min: 0, max: 100, colors: ["#ff00005c"] %>
+        <% end %>
+    </div>
 </div>

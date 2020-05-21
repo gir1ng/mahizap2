@@ -21,14 +21,16 @@ class TasksController < ApplicationController
   end
 
   def graph
+    @t = Task.all
     tasks = current_user.tasks
-    if @percentages.nil?
-      @percentages = {}
+    if @todo_percentages.nil?
+      @todo_percentages = {}
+      @not_todo_percentages = {}
       tasks.each do |task|
         if task.todo.present?
-          @percentages[task.todo] = (task.checked_count.to_f / task.total_count * 100).to_s + "%"
-        elsif task.not_todo.present?
-          @percentages[task.not_todo] = (task.checked_count.to_f / task.total_count * 100).to_s + "%"
+          @todo_percentages[task.todo] = (task.checked_count.to_f / task.total_count * 100).to_s + "%"
+        else
+          @not_todo_percentages[task.not_todo] = (task.checked_count.to_f / task.total_count * 100).to_s + "%"
         end
       end
     end

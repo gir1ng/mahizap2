@@ -35,7 +35,7 @@ class UsersController < ApplicationController
         end
       end
 
-      redirect_to meal_records_url
+      redirect_to graph_url
     else
       flash[:danger] = "1つ以上チェックしてください"
       redirect_to tasks_url
