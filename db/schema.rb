@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_014112) do
+ActiveRecord::Schema.define(version: 2020_05_21_234701) do
 
   create_table "foods", force: :cascade do |t|
     t.string "food_name"
@@ -54,6 +54,15 @@ ActiveRecord::Schema.define(version: 2020_05_20_014112) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  create_table "wish_lists", force: :cascade do |t|
+    t.string "wish_content"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_wish_lists_on_user_id"
+  end
+
   add_foreign_key "meal_records", "users"
   add_foreign_key "tasks", "users"
+  add_foreign_key "wish_lists", "users"
 end

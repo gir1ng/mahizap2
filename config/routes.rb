@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :users
   resources :meal_records
   resources :tasks
+  resources :wish_lists
 end

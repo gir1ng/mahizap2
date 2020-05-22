@@ -1,0 +1,9 @@
+<div class="row">
+    <h3>痩せたらやりたいことリスト100</h3>
+    <ol class="checklist">
+        <% @wish_lists.each do |wish_list| %>
+            <li><%= wish_list.wish_content %></li>
+        <% end %>   
+    </ol>
+    <%= link_to "やりたいことリストを追加する", new_wish_list_path %>
+</div>

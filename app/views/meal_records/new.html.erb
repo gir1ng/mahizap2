@@ -9,7 +9,7 @@
         <% end %>
 
             <% if @foods %>
-                <ul>
+                <ul class="list-unstyled">
                     <% @foods.each do |food| %>
                         <li>
                             <%= form_with(url: new_meal_record_path, method: :get, local: true) do |f| %>

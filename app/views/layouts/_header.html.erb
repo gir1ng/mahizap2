@@ -7,19 +7,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <p class="navbar-brand"><%= link_to "Mahizap2", root_path, style: "color: white;" %></p>
+                <p id="header_title" class="navbar-brand"><%= link_to "Mahizap2", root_path, style: "color: white;" %></p>
             </div>
             <div class="collapse navbar-collapse" id="main-menu" style="background-color:#ff00aa85;">
                 <ul class="nav navbar-nav">
                     <% if logged_in? %>
-                    <li><%= link_to "記録する", new_meal_record_path, style: "color: white;" %></li>
-                    <li><%= link_to "記録を見る", meal_records_path, style: "color: white;" %></li>
-                    <li><%= link_to "チェックリスト", tasks_path, style: "color: white;" %></li>
-                    <li><%= link_to "グラフ（良い名前が欲しい）", graph_path, style: "color: white;" %></li>
-                    <li><%= link_to "ログアウト", logout_path, method: :delete, style: "color: white;" %></li>
+                        <li><%= link_to "食事記録をつける", new_meal_record_path, style: "color: white;" %></li>
+                        <li><%= link_to "やることリスト", tasks_path, style: "color: white;" %></li>
+                        <li><%= link_to "痩せたらやりたいことリスト100", wish_lists_path, style: "color: white;" %></li>
+                        <li><%= link_to "食事記録を見る", meal_records_path, style: "color: white;" %></li>
+                        <li><%= link_to "可視化グラフ", graph_path, style: "color: white;" %></li>
+                        <li><%= link_to "ログアウト", logout_path, method: :delete, style: "color: white;" %></li>
                     <% else %>
-                    <li><%= link_to "新規登録", new_user_path, style: "color: white;" %></li>
-                    <li><%= link_to "ログイン", login_path, style: "color: white;" %></li>
+                        <li><%= link_to "新規登録", new_user_path, style: "color: white;" %></li>
+                        <li><%= link_to "ログイン", login_path, style: "color: white;" %></li>
                     <% end %>
                 </ul>
             </div>

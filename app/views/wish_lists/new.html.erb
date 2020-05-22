@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-xs-6">
+        <img src="https://hdu5tg.dm.files.1drv.com/y4mrpryYOmwT5MFsdJGq3TQbxx7-yTVlYtdTrZw-Tti3z2jBimnfqFTVnDxoU8lvpKmohPGbglBFdBbfIfPNR9VyWpJRSt8rAVjAPoyst0aEkAsXYeLmfAt-xjdBCLQCBvm2OTTzHb-kAcj2J5VhiZZGvYhBhtmA6Os37xuefIPHN-EBkeAl8cjP3EPM-6GwVUyOPOtzAItp2sEBL8GEiCxgw?width=427&height=640&cropmode=none" width="427" height="500" />
+    </div>
+    <div class="col-xs-6">
+        <div class="form-group" style="margin: 200px 0;">
+            <%= form_with(model: @wish_list, local: true, class: 'mt-100') do |f| %>
+                <%= render 'shared/error_messages', object: f.object %>
+                <%= f.label :wish_content, "痩せたらやりたいことは？" %>
+                <%= f.text_field :wish_content, class: 'form-control' %>
+                <div style="margin-top: 10px;">
+                    <%= f.submit "お願いする", class: "btn btn-primary center-block" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

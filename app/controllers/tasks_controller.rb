@@ -7,7 +7,7 @@ class TasksController < ApplicationController
 
   def index
     @task = Task.new
-    @tasks = Task.where(user_id: current_user.id)
+    @tasks = current_user.tasks
   end
 
   def create
