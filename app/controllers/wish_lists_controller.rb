@@ -1,6 +1,12 @@
 class WishListsController < ApplicationController
   def index
     @wish_lists = current_user.wish_lists
+
+    # key_len = ActiveSupport::MessageEncryptor.key_len
+    # secret = Rails.application.key_generator.generate_key("salt", key_len)
+    # crypt = ActiveSupport::MessageEncryptor.new(secret)
+    # @encrypted = crypt.encrypt_and_sign(42.3)
+    # @back = crypt.decrypt_and_verify(@encrypted)
   end
 
   def new
