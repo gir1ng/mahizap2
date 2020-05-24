@@ -10,7 +10,6 @@
   <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
   <%= render 'layouts/shim' %>
   <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
-  <!-- <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %> -->
   <%= javascript_include_tag '//code.highcharts.com/highcharts.js', 'chartkick' %>
 </head>
 
@@ -22,7 +21,7 @@
     <% end %>
     <%= yield %>
     <div class="fixed-bottom">
-      <!-- <%= debug(params) if Rails.env.development? %> -->
+      <%= debug(params) if Rails.env.development? %>
     </div>
   </div>
 </body>

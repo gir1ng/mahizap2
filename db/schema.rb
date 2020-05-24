@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_23_010201) do
+ActiveRecord::Schema.define(version: 2020_05_24_013358) do
 
   create_table "foods", force: :cascade do |t|
     t.string "food_name"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_05_23_010201) do
   end
 
   create_table "secrets", force: :cascade do |t|
-    t.float "weight"
+    t.string "weight"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2020_05_23_010201) do
     t.string "password_digest"
     t.string "remember_digest"
     t.integer "point", default: 0
+    t.string "secret_password"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

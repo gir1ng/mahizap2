@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :meal_records, dependent: :destroy
   has_many :tasks, dependent: :destroy
   has_many :wish_lists, dependent: :destroy
+  has_many :secrets, dependent: :destroy
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 50 }

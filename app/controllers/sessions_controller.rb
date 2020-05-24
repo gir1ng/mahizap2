@@ -25,4 +25,25 @@ class SessionsController < ApplicationController
     log_out if logged_in?
     redirect_to root_url
   end
+
+  def secret_password_form
+  end
+
+  def create_secret_password
+    secret_password = params[:secret_password]
+    password_confirmation = params[:password_confirmation]
+    if secret_password != password_confirmation
+      flash[:danger] = "パスワードが一致しません"
+      redirect_to secret_password_form_url and return
+    end
+
+    if secret_password.length < 4
+      flash[:danger] = "パスワードは4文字以上必要です"
+      redirect_to secret_password_form_url and return
+    end
+
+    current_user.update_attribute(:secret_password, User.digest(secret_password))
+    flash[:success] = "パスワードを設定しました"
+    redirect_to graph_url
+  end
 end
