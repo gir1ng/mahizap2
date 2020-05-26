@@ -4,7 +4,7 @@
     </div>
     <div class="col-xs-6">
         <div class="form-group" style="margin: 200px 0;">
-            <%= form_with(model: @wish_list, local: true, class: 'mt-100') do |f| %>
+            <%= form_with(model: @wish_list, local: true) do |f| %>
                 <%= render 'shared/error_messages', object: f.object %>
                 <%= f.label :wish_content, "痩せたらやりたいことは？" %>
                 <%= f.text_field :wish_content, class: 'form-control' %>

@@ -17,6 +17,7 @@
                         <li><%= link_to "痩せたらやりたいことリスト100", wish_lists_path, style: "color: white;" %></li>
                         <li><%= link_to "食事記録を見る", meal_records_path, style: "color: white;" %></li>
                         <li><%= link_to "可視化グラフ", graph_path, style: "color: white;" %></li>
+                        <li><%= link_to "非公開", secret_login_path, style: "color: white;" %></li>
                         <li><%= link_to "ログアウト", logout_path, method: :delete, style: "color: white;" %></li>
                     <% else %>
                         <li><%= link_to "新規登録", new_user_path, style: "color: white;" %></li>

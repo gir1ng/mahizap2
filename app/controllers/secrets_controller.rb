@@ -1,29 +1,10 @@
 class SecretsController < ApplicationController
   def index
     if session[:secret_password].nil?
-      if params[:password].nil?
-        get_chart_data
-        render "index" and return
-      end
-      session[:secret_password] = params[:password]
-      redirect_to secrets_url and return
-    end
-    password = session[:secret_password]
-    session.delete(:secret_password)
-
-    if BCrypt::Password.new(current_user.secret_password).is_password?(password)
-      # secrets = current_user.secrets
-      # if @chart_data.nil?
-      #   @chart_data = {}
-      #   secrets.each do |secret|
-      #     @chart_data[secret.created_at] = get_crypt.decrypt_and_verify(secret.weight)
-      #   end
-      # end
-      get_chart_data
-      render "index"
+      flash[:danger] = "パスワードを入力してください"
+      redirect_to secret_login_url
     else
-      flash[:success] = "パスワードが違います"
-      redirect_to graph_url
+      get_chart_data
     end
   end
 
@@ -36,8 +17,7 @@ class SecretsController < ApplicationController
     @secret = current_user.secrets.build(weight: encrypted)
     if @secret.save
       flash[:success] = "体重の登録が完了しました"
-      get_chart_data
-      render "index"
+      redirect_to secrets_url
     else
       render "new"
     end
