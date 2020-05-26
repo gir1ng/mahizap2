@@ -49,6 +49,11 @@ class SessionsController < ApplicationController
   end
 
   def secret_login
+    if current_user.secret_password.nil?
+      flash[:success] = "パスワードが設定されていません"
+      redirect_to secret_login_url and return
+    end
+
     if BCrypt::Password.new(current_user.secret_password).is_password?(params[:secret_password])
       session[:secret_password] = params[:secret_password]
       redirect_to secrets_url

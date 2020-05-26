@@ -13,11 +13,11 @@ class SecretsController < ApplicationController
   end
 
   def create
-    logger.debug("ぱらむ------")
-    logger.debug(params[:secret][:weight])
+    # logger.debug("ぱらむ------")
+    # logger.debug(params[:secret][:weight])
     encrypted = get_crypt.encrypt_and_sign(secret_params[:weight])
-    logger.debug("えんくり------")
-    logger.debug(encrypted)
+    # logger.debug("えんくり------")
+    # logger.debug(encrypted)
     @secret = current_user.secrets.build(weight: encrypted)
     if @secret.save
       flash[:success] = "体重の登録が完了しました"
