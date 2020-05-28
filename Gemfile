@@ -12,6 +12,8 @@ gem "turbolinks", "5.2.0"
 gem "jbuilder", "2.9.1"
 gem "chartkick"
 # gem 'bootsnap',   '1.4.4', require: false
+gem "payjp"
+gem "dotenv-rails"
 
 group :development, :test do
   gem "sqlite3", "1.4.1"

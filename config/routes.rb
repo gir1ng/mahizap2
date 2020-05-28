@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post "/purchase", to: "mahizap#purchase"
+  get "/test", to: "mahizap#test"
   root "mahizap#index"
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
